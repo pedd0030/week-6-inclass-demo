@@ -30,3 +30,22 @@ h2+p{
     color: white;
     padding: 1rem;
 }
+/* ~ is sibling selector */
+.stars span:hover~span{
+    opacity: .5;
+}
+
+.stars span{
+    cursor: pointer;
+}
+
+/* [] is Attribute selector */
+a[href="#"]{
+    color: tomato;
+}
+
+
+/* ^= is for checking if the value starts with */
+a[href^="http"]{
+    border-left: 4px solid tomato;
+}
