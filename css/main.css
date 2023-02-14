@@ -1,0 +1,32 @@
+/*Default class selector 
+Specificity: 0010 */
+.container{
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Space is Descendant combinator 
+Specificity: 0002 */
+nav ul{
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Specificity: 0003 */
+nav ul li{
+    flex: 1;
+}
+
+/* > Is direct child selector */
+main>p{
+    font-size: 1.25rem;
+}
+
+/* + is adjacent child selector*/
+h2+p{
+    background-color: black;
+    color: white;
+    padding: 1rem;
+}
