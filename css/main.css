@@ -1,3 +1,11 @@
+:root{
+    --primary-color: purple;
+    --secondary-color: turquoise;
+    --dark-color: #333;
+    --light-color: ivory;
+    --padding-space: 1rem;
+}
+
 /*Default class selector 
 Specificity: 0010 */
 .container{
@@ -26,9 +34,9 @@ main>p{
 
 /* + is adjacent child selector*/
 h2+p{
-    background-color: black;
-    color: white;
-    padding: 1rem;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding: var(--padding-space);
 }
 /* ~ is sibling selector */
 .stars span:hover~span{
@@ -41,11 +49,72 @@ h2+p{
 
 /* [] is Attribute selector */
 a[href="#"]{
-    color: tomato;
+    color: var(--primary-color);
 }
 
 
 /* ^= is for checking if the value starts with */
 a[href^="http"]{
-    border-left: 4px solid tomato;
+    border-left: 4px solid var(--primary-color);
+}
+
+/* loVe hAte */
+nav a,
+nav a:link,
+nav a:visited{
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: transform .5s;
+}
+
+nav a:hover, 
+nav a:focus{
+    text-decoration: underline;
+    transform: scale(1.4);
+}
+
+nav a:active{
+    transform: scale(1.4) translateX(10px);
+}
+
+
+/* use :: for pseudo elements */
+a[href$=".pdf"]::after{
+    content: "\2193";
+    font-size: 1.25rem;
+    color: var(--primary-color);
+}
+
+/* calc() function */
+
+.google{
+    display: block;
+    background-color: var(--secondary-color);
+    width: calc(100% - 1rem - 4px - 2rem - 1rem - 2rem ); /* or - 6rem */
+    padding: 2rem;
+    margin: 1rem;
+}
+
+/* Additional Example
+h2{
+    position relative;
+}
+h2:hover::before{
+    content: "Hello World!";
+    position: absolute;
+    width: 100%;
+    background-color: white;
+}
+*/
+
+h2+p::first-line{
+    color: var(--secondary-color);
+}
+
+h3+p::first-letter{
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: .25rem;
+    margin-right: .10rem;
 }
